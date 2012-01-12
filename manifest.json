@@ -1,0 +1,30 @@
+{
+  "name" : "YOSPOS Terminal Switcher",
+  "version" : "1.1",
+  "update_url": "http://bits.blarf.com/yosposterminal/updates.xml",
+  "description" : "You are a nerd, I'm afraid it's terminal",
+  "background_page" : "background.html",
+  "page_action" :
+  {
+    "default_icon" : "yospos-19.png",
+    "default_title" : "okay"
+  },
+  "content_scripts" : [
+    {
+      "matches" : ["http://forums.somethingawful.com/*"],
+      "js" : ["jquery.min.js","contentscript.js"],
+      "run_at" : "document_end",
+      "all_frames" : false
+    },
+	{
+		"matches": ["http://forums.somethingawful.com/showthread.php?*", "http://forums.somethingawful.com/newreply.php?*", "http://forums.somethingawful.com/newreply.php"],
+		"run_at": "document_end",
+		"js": ["tablebreak.js"]
+	}
+  ],
+  "permissions" : ["tabs","http://*.somethingawful.com/*"],
+  "icons" : {
+    "48" : "yospos-48.png",
+    "128" : "yospos-128.png"
+  }
+}
